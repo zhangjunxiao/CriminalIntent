@@ -65,8 +65,9 @@ public class CrimeListFragment extends Fragment {
         public void onClick(View v) {
 //            Toast.makeText(getActivity(),mCrime.getTittle()+"Clicked!", Toast.LENGTH_SHORT).show();
 //            Intent intent = new Intent(getActivity(),CrimeActivity.class);
-            Intent intent = CrimeActivity.newIntent(getActivity(),mCrime.getID());
+//            Intent intent = CrimeActivity.newIntent(getActivity(),mCrime.getID());
 
+            Intent intent = CrimePagerActivity.newIntent(getActivity(),mCrime.getID());
             startActivity(intent);
         }
     }
@@ -116,6 +117,7 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
+            //数据更改，发出通知
             mAdapter.notifyDataSetChanged();
         }
     }
